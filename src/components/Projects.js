@@ -29,7 +29,7 @@ export const Projects = () => {
       title: "Invoice Management System",
       description: "The Invoice Management System is a robust web application developed using the MERN  stack. It is designed to simplify the process of creating, sending, and tracking invoices.",
       imgUrl:projImg3,
-    }
+    },
   ];
 
   const project1 = [
@@ -65,8 +65,9 @@ export const Projects = () => {
       title: "Tic-Tac-toe Game",
       description: "The Tic-Tac-Toe Game is a classic two-player game built using HTML, CSS, and JavaScript. This project aims to provide an engaging and fun user experience through a simple yet interactive game.",
       imgUrl: projImg6,
-    }
+    },
   ];
+  
   return (
     <section className="project" id="projects">
       <Container>
