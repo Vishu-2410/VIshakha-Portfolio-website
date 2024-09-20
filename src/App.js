@@ -1,4 +1,5 @@
 
+// src\App.js
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./components/Navbar";
@@ -10,6 +11,7 @@ import { Footer } from "./components/Footer";
 import About from './components/About';
 import Experiance from './components/Experiance';
 import CarouselFadeExample from './ProjectsSection/slider';
+
 function App() {
   return (
     <div className="App">
