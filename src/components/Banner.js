@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/vish3.jpg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
@@ -9,18 +9,15 @@ export const Banner = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const toRotate = ["Full Stack Developer", "Web Developer", "Frontend Developer", "UI/UX Designer"];
+  // Removed the unused 'index' state
+  // const [index, setIndex] = useState(1);
   const period = 2000;
 
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
+  // Use useMemo to memoize the 'toRotate' array
+  const toRotate = useMemo(() => ["Full Stack Developer", "Web Developer", "Frontend Developer", "UI/UX Designer"], []);
 
-    return () => { clearInterval(ticker) };
-  }, [delta, text]);
-
-  const tick = () => {
+  // Memoize the tick function to prevent it from being recreated unnecessarily
+  const tick = useCallback(() => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
     let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
@@ -39,7 +36,15 @@ export const Banner = () => {
       setLoopNum(loopNum + 1);
       setDelta(500);
     }
-  };
+  }, [loopNum, isDeleting, text, toRotate]);
+
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => { clearInterval(ticker); };
+  }, [tick, delta]); // Ensure 'tick' and 'delta' are in the dependency array
 
   return (
     <section className="banner" id="home">
@@ -55,7 +60,9 @@ export const Banner = () => {
                       <span className="wrap">{text}</span>
                     </span>
                   </h1>
-                  <p>As a Full Stack Developer, I have a diverse skill set that enables me to design, develop, and deploy end-to-end web applications. With a passion for problem-solving and an eye for detail, I am dedicated to delivering high-quality, user-centric solutions that meet the needs of clients and users alike.</p>
+                  <p>As a Full Stack Developer, I have a diverse skill set that enables me to design, develop, and deploy end-to-end
+                    web applications. With a passion for problem-solving and an eye for detail, I am dedicated to delivering high-quality,
+                    user-centric solutions that meet the needs of clients and users alike.</p>
                   <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
                 </div>}
             </TrackVisibility>
