@@ -6,14 +6,13 @@
 .experiance_container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap :2rem;
-    margin-left: 60px;
-    
+    gap :1rem;
+    margin-left: 20px;
 }
 .experiance_container >div{
     /* background-color:#2c2c6c; */
     background: linear-gradient(90.21deg, rgba(168, 54, 123, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
-    padding: 3.4rem 3rem;
+    padding: 3.2rem 1.5rem;
     border-radius: 2rem;
     border: 1px solid transparent;
     transition: all 400ms ease;

@@ -4,7 +4,7 @@ import contactImg from "../assets/img/contact-img.svg";
 import TrackVisibility from 'react-on-screen';
 
 export const Contact = () => {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState(''); // State to hold the result message
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -30,8 +30,6 @@ export const Contact = () => {
     }
   };
 
-
-
   return (
     <section className="contact" id="connect">
       <Container>
@@ -50,27 +48,30 @@ export const Contact = () => {
                   <h2>Get In Touch</h2>
                   <form onSubmit={onSubmit} className="contact-right">
                     <Row>
-                  <Col size={12} sm={6} className="px-1">
-                      <input type="text"  placeholder="First Name" name="name" />
-                    </Col>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="text"  placeholder="Last Name" />
-                    </Col>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="email"  placeholder="Email Address" name="email"/>
-                    </Col>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="tel" placeholder="Phone No." />
-                    </Col>
-                    <Col size={12} className="px-1">
-                      <textarea rows="6"  placeholder="Enter your message"></textarea>
-                      {/* <button type="submit"><span>{buttonText}</span></button> */}
-                      <button type="submit"><span>Submit now</span></button>
-                    </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input type="text" placeholder="First Name" name="name" />
+                      </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input type="text" placeholder="Last Name" />
+                      </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input type="email" placeholder="Email Address" name="email"/>
+                      </Col>
+                      <Col size={12} sm={6} className="px-1">
+                        <input type="tel" placeholder="Phone No." />
+                      </Col>
+                      <Col size={12} className="px-1">
+                        <textarea rows="6" placeholder="Enter your message"></textarea>
+                        <button type="submit"><span>Submit now</span></button>
+                      </Col>
                     </Row>
-                   
                   </form>
-                </div>}
+                  {/* Display the result message */}
+                  <div className="result-message">
+                    {result && <p>{result}</p>}
+                  </div>
+                </div>
+              }
             </TrackVisibility>
           </Col>
           <Col>
@@ -79,5 +80,5 @@ export const Contact = () => {
         </Row>
       </Container>
     </section>
-  )
-}
+  );
+};
