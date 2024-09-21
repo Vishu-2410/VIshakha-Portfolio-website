@@ -296,6 +296,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-right: 0.08em solid #666;
 }
 
+@media  screen and (max-width:600px) {
+  .banner img{
+    height:auto;
+  width: 90%;
+  margin-left: 10px;
+  margin-top: 20px;
+  }}
 /************ Skills Css ************/
  
 .about-bx {
@@ -479,12 +486,46 @@ background: linear-gradient(264deg ,#DF8908 -5.09%,#B415FF 106.28% );
 
 /* media queries (small devices) */
 @media  screen and (max-width:600px) {
+  #about{
+     margin-left: -150px;
+  }
+  .about-bx{
+    width:220px ;
+  }
+  
   .about_me{
-      width: 65%;
+      width: 60%;
+      margin-left: -30px;
       margin: 0 auto 3rem;
   }
+  .about_container{
+    display: grid;
+    grid-template-columns: 45%;
+    gap: 1%;
+    }
+  .about_me{
+    width: 200px;
+    height: 280px;
+    aspect-ratio: 1/1;
+    border-radius: 2rem;
+    background: linear-gradient(45deg,transparent,rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5),transparent);
+    /* background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%); */
+    display: grid;
+    place-items: center;
+  }
+  .about_me-image{
+    border-radius: 2rem;
+    overflow: hidden;
+    transition:all 400ms ease;
+    transform: rotate(10deg);
+    height: 580px;
+  }
+  .about_me-image:hover{
+    transform: rotate(0);
+  }
+  
   .about_card{
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 1rem;
   }
   .about_content{
